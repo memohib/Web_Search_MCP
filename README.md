@@ -2,17 +2,16 @@
 An MCP(Model Context Protocol) Server with a web search tool
 
 
-This project demonstrates how to create a web search tool using the Tavily API and integrate it with FastMCP (Model Context Protocol) for seamless interaction with AI agents or other applications. This allows you to provide real-time web search capabilities to your language models or applications.
+This project demonstrates how to create a web search tool using the Tavily API and integrate it with MCP (Model Context Protocol) for seamless interaction with AI Systems. This allows you to provide real-time web search capabilities to your language models or applications.
 
 ## Overview
 
 The `Web_Search_MCP` project leverages the following key components:
 
 *   **Tavily API:** A powerful search API that provides real-time, comprehensive web search results, including answers, raw content, and relevant metadata.
-*   **FastMCP:** A Python library enabling the creation of tool servers based on the Model Context Protocol (MCP). This allows for easy integration of custom tools with AI models.
+*   **FastMCP:** The FastMCP class uses Python type hints and docstrings to automatically generate tool definitions, making it easy to create and maintain MCP tools.
 *   **Langchain:**  Specifically, the `TavilySearchResults` tool from Langchain is used to interact with the Tavily API efficiently.
 *   **Dotenv:** A library for loading environment variables from a `.env` file, securely managing sensitive information like API keys.
-*   **uvloop:** provides an implementation of asyncio that provides a high-performance event loop.
 * **uv:** A very fast Python package installer and resolver, used to manage and run this project.
 
 ## Functionality
@@ -40,14 +39,15 @@ Before running the project, ensure that you have:
 
 1.  **Create Project Directory:** Create a directory for the project and navigate into it:
     ```bash
-    mkdir Web_Search_MCP
-    cd Web_Search_MCP
+    uv init Web_Search_MCP    
     ```
+    *** By Running the above code uv creates `pyproject.toml` and `.venv` in the directory ***
 2.  **Create Project Files:** Create the files `main.py` and `.env` in the `Web_Search_MCP` directory.
-3.  **Copy code:** copy the code in the `main.py` and `.env` into the files you just create.
-4.  **Install Dependencies:** Use `uv` to install the required Python packages:
+3.  **Activate Venv:** Navigate into .venv/Scripts/activate and activate the Vritual Environment
+4.  **Copy code:** copy the code in the `main.py` and `.env` into the files you just create.
+5.  **Install Dependencies:** Use `uv` to install the required Python packages:
     ```bash
-    uv pip install mcp python-dotenv langchain-community uvloop tavily-python
+    uv add "mcp[cli]" python-dotenv langchain-community tavily-python
     ```
 
 ## Configuration
@@ -80,19 +80,9 @@ Before running the project, ensure that you have:
       }
     ```
 
-## Running the FastMCP Server
+## Running the MCP Server
 
-1.  **Navigate to the Project Directory:**
-    ```bash
-    cd path/Web_Search_MCP
-    ```
-    
-
-2.  **Start the Server:** Run the following command using `uv`:
-    ```bash
-    uv run main.py
-    ```
-    Alternatively, if you have configured the `claude_desktop_config.json` file, you can start the server from within the Claude desktop application.
+After Congfiguring the `claude_desktop_config.json` file, you can start the server from within the Claude desktop application.
 
 ## Usage
 
